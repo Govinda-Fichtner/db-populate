@@ -20,7 +20,7 @@ class ActiveRecord::Base
       options.each do |key, value|
         record.send("#{key}=", value)
       end
-      save(ActiveRecord::VERSION::MAJOR < 3 ? false : { :validate => false })
+      record.save(ActiveRecord::VERSION::MAJOR < 3 ? false : { :validate => false })
     end
     record
   end
